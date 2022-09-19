@@ -1,0 +1,11 @@
+#form-container {
+    display: flex;
+    margin-top: 20%;
+    width: 30%;
+    gap: 10px;
+    flex-direction: column;
+}
+
+#btn {
+    width: 20%;
+}
