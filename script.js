@@ -63,7 +63,7 @@ const createBookElement = (book) => {
     bookData.forEach((book) => {
         const bookContainer = document.createElement('div');
         bookContainer.className = 'books';
-        bookContainer.innerHTML = `<h2 id="title-name">${book.title}</h2><h3 id="author-name">${book.author}</h3> <button class="remove-btn">Remove</button>`;
+        bookContainer.innerHTML = `<h2 id="title-name">${book.title}</h2><p id="author-name">${book.author}</p> <button class="remove-btn">Remove</button>`;
         list.appendChild(bookContainer);
     })
     
@@ -82,7 +82,7 @@ btn.addEventListener("click", (event) => {
 
     const bookContainer = document.createElement('div');
     bookContainer.className = 'books';
-    bookContainer.innerHTML = `<h2 id="title-name">${bookCard.title}</h2><h3 id="author-name">${bookCard.author}</h3> <button class="remove-btn">Remove</button>`;
+    bookContainer.innerHTML = `<h2 id="title-name">${bookCard.title}</h2><p id="author-name">${bookCard.author}</p> <button class="remove-btn">Remove</button>`;
     list.appendChild(bookContainer);
 
     form.reset();

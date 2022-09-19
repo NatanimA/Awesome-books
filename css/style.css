@@ -10,6 +10,10 @@
     width: 20%;
 }
 
+#intro {
+    text-align: center;
+}
+
 button {
     width: 10%;
 }
