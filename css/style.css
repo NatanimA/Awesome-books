@@ -10,6 +10,10 @@
     width: 20%;
 }
 
+button {
+    width: 10%;
+}
+
 #list {
     display: flex;
     flex-direction: column;
@@ -24,4 +28,8 @@
 
 .remove-btn {
     width: 20%;
+}
+
+.books {
+    border-bottom: 1px solid silver;
 }
