@@ -100,6 +100,5 @@ removeBtn.addEventListener('click',(event) => {
     const books = getBooks();
     let filtered;
     filtered = books.filter((book) => book.title !== title);
-    
     localStorage.setItem('booksData', JSON.stringify(filtered));
 });
