@@ -3,7 +3,7 @@ const list = document.querySelector("#list");
 const form = document.querySelector("form");
 const storage = window.localStorage;
 
-function bookObject(title,author){
+function bookObject(title, author) {
     const books = {
         title: title.value,
         author: author.value,
@@ -24,33 +24,32 @@ function storageAvailable(type) {
     } catch (e) {
         const { code, name } = e;
         return (
-            e instanceof DOMException
-            && (code === 22
-                || code === 1014
-                || name === 'QuotaExceededError'
-                || name === 'NS_ERROR_DOM_QUOTA_REACHED')
-            && storage.length !== 0
+            e instanceof DOMException &&
+            (code === 22 ||
+                code === 1014 ||
+                name === 'QuotaExceededError' ||
+                name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            storage.length !== 0
         );
     }
 }
 
-function getBooks(){
+function getBooks() {
     let book;
     if (storageAvailable('localStorage')) {
 
-        if(localStorage.getItem('booksData') == null){
+        if (localStorage.getItem('booksData') == null) {
             book = [];
-        }
-        else{
+        } else {
             book = JSON.parse(localStorage.getItem('booksData'));
         }
-        
-    }  
+
+    }
     return book;
 }
 
-function addBooks(book){
-    const booksList =  getBooks();
+function addBooks(book) {
+    const booksList = getBooks();
     booksList.push(book);
     localStorage.setItem('booksData', JSON.stringify(booksList));
 }
@@ -66,7 +65,7 @@ const createBookElement = (book) => {
         bookContainer.innerHTML = `<h2 id="title-name">${book.title}</h2><p id="author-name">${book.author}</p> <button class="remove-btn">Remove</button>`;
         list.appendChild(bookContainer);
     })
-    
+
 }
 
 
@@ -76,7 +75,7 @@ btn.addEventListener("click", (event) => {
     var title = document.querySelector("#title");
     var author = document.querySelector("#author");
 
-    const bookCard = bookObject(title,author);
+    const bookCard = bookObject(title, author);
 
     addBooks(bookCard);
 
@@ -94,7 +93,7 @@ btn.addEventListener("click", (event) => {
 const removeBtn = document.querySelector("#list");
 
 
-removeBtn.addEventListener('click',(event) => {
+removeBtn.addEventListener('click', (event) => {
     event.target.parentElement.remove();
     var title = event.target.parentElement.firstElementChild.textContent;
     const books = getBooks();
