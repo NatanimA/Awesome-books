@@ -1,10 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
-
-Awesome Books
-
-# Description the project
+# Awesome Books
 
 This project is to build a basic website that allows users to add/remove books from a list.
 
@@ -21,30 +17,28 @@ This project is to build a basic website that allows users to add/remove books f
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 To get a local copy up and running follow these simple example steps.
 
+$ git clone https://github.com/NatanimA/Awesome-books.git
+
+$ git checkout -b feature-objects
+
+$ git pull origin feature-objects
+
 ### Prerequisites
+
+No prerequisties needed
 
 ### Setup
 
 ### Install
 
-### Usage
-
-### Run tests
-
-### Deployment
-
 ## Authors
 
-👤 **Author1**
+👤 **Natanim Abesha**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/NatanimA)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/natanim-abesha-04a39823a)
 
 👤 **John Adibe**
 
@@ -58,15 +52,17 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
-## Show your support
-
-Give a ⭐️ if you like this project!
-
 ## Acknowledgments
 
 - Hat tip to anyone whose code was used
+
 - Inspiration
+
 - etc
+
+## Show your support
+
+Give a ⭐️ if you like this project!
 
 ## 📝 License
 
