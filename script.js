@@ -66,16 +66,13 @@ btn.addEventListener('click', (event) => {
   event.preventDefault();
   const title = document.querySelector('#title');
   const author = document.querySelector('#author');
-  var status = true;
+  let status = true;
   const bookCard = new BookObject(title, author);
   const booksList = ClassLocalStorage.getBooks();
-  for (let i = 0; i < booksList.length; i++) {
-    if (title.value == booksList[i].title && author.value == booksList[i].author) {
+  for (let i = 0; i < booksList.length; i += 1) {
+    if (title.value === booksList[i].title && author.value === booksList[i].author) {
       status = false;
-      alert("Book already exists please add a new one");
-    }
-    else {
-      continue;
+      alert('Book already exists please add a new one');
     }
   }
   if (status) {
