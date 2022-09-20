@@ -13,7 +13,7 @@ This project is to build a basic website that allows users to add/remove books f
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://natanima.github.io/Awesome-books/)
 
 ## Getting Started
 
