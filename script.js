@@ -1,8 +1,8 @@
+/* eslint-disable max-classes-per-file */
 const btn = document.querySelector('#btn');
 const list = document.querySelector('#list');
 const form = document.querySelector('form');
 
-/* eslint-disable max-classes-per-file */
 class BookObject {
   constructor(title, author) {
     this.title = title.value;
@@ -66,29 +66,36 @@ btn.addEventListener('click', (event) => {
   event.preventDefault();
   const title = document.querySelector('#title');
   const author = document.querySelector('#author');
-
+  var status = true;
   const bookCard = new BookObject(title, author);
-
-  ClassLocalStorage.addBooks(bookCard);
-
-  const bookContainer = document.createElement('div');
-  bookContainer.className = 'books';
-  bookContainer.innerHTML = `<h2 id="title-name">${bookCard.title}</h2><p id="author-name">${bookCard.author}</p> <button class="remove-btn">Remove</button>`;
-  list.appendChild(bookContainer);
-
+  const booksList = ClassLocalStorage.getBooks();
+  for(let i = 0;i<booksList.length;i++){
+    if(title.value == booksList[i].title && author.value == booksList[i].author){
+      status=false;
+      alert("Book already exists please add a new one");
+    }
+    else{
+      continue;
+    }
+  }
+  if(status){
+    ClassLocalStorage.addBooks(bookCard);
+    const bookContainer = document.createElement('div');
+    bookContainer.className = 'books';
+    bookContainer.innerHTML = `<h2 id="title-name">${bookCard.title}</h2><p id="author-name">${bookCard.author}</p> <button class="remove-btn">Remove</button>`;
+    list.appendChild(bookContainer);
+  }
   form.reset();
 });
 
 const removeBtn = document.querySelector('#list');
 
 removeBtn.addEventListener('click', (event) => {
-  
-  event.target.parentElement.className= "delete";
-  var className = event.target.parentElement;
+  event.target.parentElement.className = 'delete';
+  const title = event.target.parentElement.firstElementChild.textContent;
   event.target.parentElement.remove();
-  console.log(className);
+  const author = event.target.parentElement.firstElementChild.nextElementSibling.textContent;
   const books = ClassLocalStorage.getBooks();
-
-  const filtered = books.filter((book) => book.className !== className);
+  const filtered = books.filter((book) => book.title !== title || book.author !== author);
   localStorage.setItem('booksData', JSON.stringify(filtered));
 });
