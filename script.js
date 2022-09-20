@@ -1,7 +1,6 @@
-const btn = document.querySelector("#btn");
-const list = document.querySelector("#list");
-const form = document.querySelector("form");
-const storage = window.localStorage;
+const btn = document.querySelector('#btn');
+const list = document.querySelector('#list');
+const form = document.querySelector('form');
 
 class BookObject{
     constructor(title,author){
@@ -65,40 +64,34 @@ const createBookElement = (book) => {
         bookContainer.className = 'books';
         bookContainer.innerHTML = `<h2 id="title-name">${book.title}</h2><p id="author-name">${book.author}</p> <button class="remove-btn">Remove</button>`;
         list.appendChild(bookContainer);
-    })
-    
+    });
 }
-
-
+    
 createBookElement();
-btn.addEventListener("click", (event) => {
-    event.preventDefault();
-    var title = document.querySelector("#title");
-    var author = document.querySelector("#author");
+btn.addEventListener('click', (event) => {
+  event.preventDefault();
+  const title = document.querySelector('#title');
+  const author = document.querySelector('#author');
 
-    const bookCard = new BookObject(title,author);
+  const bookCard = new BookObject(title,author);
 
-    ClassLocalStorage.addBooks(bookCard);
+  ClassLocalStorage.addBooks(bookCard);
 
-    const bookContainer = document.createElement('div');
-    bookContainer.className = 'books';
-    bookContainer.innerHTML = `<h2 id="title-name">${bookCard.title}</h2><p id="author-name">${bookCard.author}</p> <button class="remove-btn">Remove</button>`;
-    list.appendChild(bookContainer);
+  const bookContainer = document.createElement('div');
+  bookContainer.className = 'books';
+  bookContainer.innerHTML = `<h2 id="title-name">${bookCard.title}</h2><p id="author-name">${bookCard.author}</p> <button class="remove-btn">Remove</button>`;
+  list.appendChild(bookContainer);
 
-    form.reset();
-
+  form.reset();
 });
 
+const removeBtn = document.querySelector('#list');
 
-
-const removeBtn = document.querySelector("#list");
-
-
-removeBtn.addEventListener('click',(event) => {
-    event.target.parentElement.remove();
-    var title = event.target.parentElement.firstElementChild.textContent;
-    const books = ClassLocalStorage.getBooks();
-    let filtered;
-    filtered = books.filter((book) => book.title !== title);
-    localStorage.setItem('booksData', JSON.stringify(filtered));
+removeBtn.addEventListener('click', (event) => {
+  event.target.parentElement.remove();
+  const title = event.target.parentElement.firstElementChild.textContent;
+  const books = ClassLocalStorage.getBooks();
+  const filtered = books.filter((book) => book.title !== title);
+  localStorage.setItem('booksData', JSON.stringify(filtered));
 });
+
