@@ -23,11 +23,11 @@ class ClassLocalStorage {
       const { code, name } = e;
       return (
         e instanceof DOMException
-                && (code === 22
-                    || code === 1014
-                    || name === 'QuotaExceededError'
-                    || name === 'NS_ERROR_DOM_QUOTA_REACHED')
-                && storage.length !== 0
+        && (code === 22
+          || code === 1014
+          || name === 'QuotaExceededError'
+          || name === 'NS_ERROR_DOM_QUOTA_REACHED')
+        && storage.length !== 0
       );
     }
   }
@@ -69,16 +69,16 @@ btn.addEventListener('click', (event) => {
   var status = true;
   const bookCard = new BookObject(title, author);
   const booksList = ClassLocalStorage.getBooks();
-  for(let i = 0;i<booksList.length;i++){
-    if(title.value == booksList[i].title && author.value == booksList[i].author){
-      status=false;
+  for (let i = 0; i < booksList.length; i++) {
+    if (title.value == booksList[i].title && author.value == booksList[i].author) {
+      status = false;
       alert("Book already exists please add a new one");
     }
-    else{
+    else {
       continue;
     }
   }
-  if(status){
+  if (status) {
     ClassLocalStorage.addBooks(bookCard);
     const bookContainer = document.createElement('div');
     bookContainer.className = 'books';
