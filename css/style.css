@@ -1,0 +1,36 @@
+#form-container {
+  display: flex;
+  margin-top: 10%;
+  width: 40%;
+  gap: 10px;
+  flex-direction: column;
+}
+
+#btn {
+  width: 20%;
+}
+
+#intro {
+  text-align: center;
+}
+
+button {
+  width: 10%;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.books {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  border-bottom: 1px solid silver;
+}
+
+.remove-btn {
+  width: 20%;
+}
