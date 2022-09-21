@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 const btn = document.querySelector('#btn');
-const list = document.querySelector('#list');
+const list = document.querySelector('.list');
 const form = document.querySelector('form');
 
 class BookObject {
@@ -23,11 +23,11 @@ class ClassLocalStorage {
       const { code, name } = e;
       return (
         e instanceof DOMException
-        && (code === 22
-          || code === 1014
-          || name === 'QuotaExceededError'
-          || name === 'NS_ERROR_DOM_QUOTA_REACHED')
-        && storage.length !== 0
+                && (code === 22
+                    || code === 1014
+                    || name === 'QuotaExceededError'
+                    || name === 'NS_ERROR_DOM_QUOTA_REACHED')
+                && storage.length !== 0
       );
     }
   }
@@ -85,7 +85,7 @@ btn.addEventListener('click', (event) => {
   form.reset();
 });
 
-const removeBtn = document.querySelector('#list');
+const removeBtn = document.querySelector('.list');
 
 removeBtn.addEventListener('click', (event) => {
   event.target.parentElement.className = 'delete';
@@ -95,4 +95,18 @@ removeBtn.addEventListener('click', (event) => {
   const books = ClassLocalStorage.getBooks();
   const filtered = books.filter((book) => book.title !== title || book.author !== author);
   localStorage.setItem('booksData', JSON.stringify(filtered));
+});
+
+// Adding Navigation
+const navLinksContainer = document.querySelector('.nav-links');
+const navListContent = document.querySelectorAll('.nav-list-content');
+
+navLinksContainer.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.nav-link');
+  if (!clicked) return;
+  clicked.classList.add('nav-link-active');
+
+  navListContent.forEach((c) => c.classList.remove('nav-list-content-active'));
+
+  document.querySelector(`.nav-list-content-${clicked.dataset.link}`).classList.add('nav-list-content-active');
 });
